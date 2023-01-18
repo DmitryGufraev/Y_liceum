@@ -1,4 +1,4 @@
-decode_morze_russian_and_simbol = {
+decode_morze_russian = {
     '.-': 'А',
     '-...': 'Б',
     '.--': 'В',
@@ -30,7 +30,8 @@ decode_morze_russian_and_simbol = {
     '-..-': 'Ъ',
     '..-..': 'Э',
     '..--': 'Ю',
-    '.-.-': 'Я',
+    '.-.-': 'Я'}
+simbols = {
     '.----': '1',
     '..---': '2',
     '...--': '3',
@@ -83,3 +84,31 @@ decode_morze_english = {
     '-.--': 'Y',
     '-..-': 'X'
 }
+
+
+def decode_from_morse():
+    print('Введите какой язык вы хотите декодировать: "Английский","Русский"')
+    language = input()
+    if language == 'Русский':
+        phrase = input().split()
+        for i in phrase:
+            if i in decode_morze_russian:
+                print(decode_morze_russian[i], end='\t')
+            elif i in simbols:
+                print(simbols[i], end='\t')
+            elif i == ' ':
+                print()
+    elif language == 'Английский':
+        phrase = input().split()
+        for i in phrase:
+            if i in decode_morze_english:
+                print(decode_morze_english[i], end='\t')
+            elif i in simbols:
+                print(simbols[i], end='\t')
+            elif i == ' ':
+                print()
+    else:
+        print('Извините, выбранного языка нет в программе.')
+
+
+decode_from_morse()
